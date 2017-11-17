@@ -1,0 +1,38 @@
+{% if not is_xhr|default(false) %}{% extends "base.html" %}{% endif -%}
+{% block content %}
+     <div id="led">
+         <div class="box">
+             <div class="box-header">
+                 <span>I/O</span>
+             </div>	 
+			 <table class="table led">
+                <thead>
+                    <tr>
+                        <th>
+							<span>DEVICE</span>
+						</th>
+						<th>
+							<span>STATUS</span>
+						</th>
+						<th>
+							<span>DIRECTION</span>
+						</th>
+					<tr>
+				</thead>
+				<tbody>
+                <tr>
+                    <td>LED 1</td>
+                    <td>
+                        {% if device.status %}
+                        <span class="glyphicon glyphicon-ok" style="color:green"></span>
+                        {% else %}
+                        <span class="glyphicon glyphicon-remove" style="color:red" ></span>
+                        {% endif %} 
+                    </td>
+                    <td>
+                        {{ device.direction }}
+                    </td>
+                 </tr>
+                </tbody>
+         </div>
+{% endblock %}
