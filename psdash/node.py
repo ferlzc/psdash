@@ -367,3 +367,15 @@ class LocalService(object):
             'content': res
         }
         return data
+
+    """ FIXME - only working for a specific target / GPIO """
+    def get_led_status(self):
+        s = open("/sys/class/gpio/gpio59/value","r")
+        d = open("/sys/class/gpio/gpio59/direction","r")
+        device = {
+            'status': int(s.read()),
+            'direction': d.read()
+            }
+        d.close()
+        s.close()
+        return device
