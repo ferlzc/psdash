@@ -327,3 +327,13 @@ def register_node():
 
     current_app.psdash.register_node(name, host, port)
     return jsonify({'status': 'OK'})
+
+@webapp.route('/led')
+def led_status():
+    device = current_service.get_led_status()
+    return render_template(
+        'led.html',
+        page='led',
+        device=device,
+        is_xhr=request.is_xhr
+    )
