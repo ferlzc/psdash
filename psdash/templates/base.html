@@ -20,7 +20,7 @@
             <div class="header">
                 <div class="logo">
                     <a href="{{ url_for(".index") }}">
-                        <span class="app-name"># psdash <small>v0.6.0</small></span>
+                        <span class="app-name">#EMC PSDASH <small>v0.1.0</small></span>
                     </a>
                 </div>
                 <div class="top-nav">
@@ -32,6 +32,7 @@
                             {{ os }}, uptime: {{ uptime }}
                         </div>
                     </div>
+<!--
                     <div class="dropdown">
                         <span class="dropdown-text">Switch server:</span>
                         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
@@ -44,6 +45,7 @@
                             {% endfor %}
                         </ul>
                     </div>
+-->
                 </div>
             </div>
             <div class="table-container">
@@ -78,6 +80,12 @@
                                 <a href="{{ url_for(".view_logs") }}">
                                     <span class="glyphicon glyphicon-book"></span>
                                     <span class="option-text">Logs</span>
+                                </a>
+                            </li>
+                            <li {% if page == "led" %}class="active"{% endif %}>
+                                <a href="{{ url_for(".led_status") }}">
+                                    <span class="glyphicon glyphicon-flash"></span>
+                                    <span class="option-text">I/Os</span>
                                 </a>
                             </li>
                         </ul>
